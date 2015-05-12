@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+    <mapping>
+        <class-a>example.PersonA</class-a>
+        <class-b>example.PersonB</class-b>
+        <field>
+            <a>firstName</a>
+            <b>name.first</b>
+        </field>
+        <field>
+            <a>lastName</a>
+            <b>name.last</b>
+        </field>
+        <field>
+            <a>primaryContact</a>
+            <b>contacts[0]</b>
+            <b-hint>example.Contact</b-hint> 
+        </field>
+        <field>
+            <a>addresses[0]</a>
+            <b>primaryAddress</b>
+            <a-hint>example.Address</a-hint> 
+        </field>
+    </mapping>
+</mappings>
