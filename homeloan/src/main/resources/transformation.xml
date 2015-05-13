@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+    <configuration>
+        <wildcard>false</wildcard>
+    </configuration>
+    <mapping>
+        <class-a>application.ApplicationType</class-a>
+        <class-b>org.jboss.example.homeloan.data.LoanApplication</class-b>
+        <field>
+            <a>amount</a>
+            <b>amount</b>
+        </field>
+        <field>
+            <a>borrowers.borrower</a>
+            <b>applicants</b>
+        </field>
+        <field>
+            <a>borrowers.borrower[0].employmentInformation.employment[0]</a>
+            <b>income</b>
+            <a-hint>application.EmploymentType</a-hint> 
+        </field>
+    </mapping>
+    <mapping>
+        <class-a>application.BorrowerType</class-a>
+        <class-b>org.jboss.example.homeloan.data.Applicant</class-b>
+        <field>
+            <a date-format="MM/dd/yyyy">dob</a>
+            <b>dob</b>
+        </field>
+        <field>
+            <a>firstName</a>
+            <b>firstName</b>
+        </field>
+        <field>
+            <a>lastName</a>
+            <b>lastName</b>
+        </field>
+    </mapping>
+    <mapping>
+        <class-a>application.EmploymentType</class-a>
+        <class-b>org.jboss.example.homeloan.data.IncomeSource</class-b>
+        <field>
+            <a>monthlyIncome</a>
+            <b>monthlyAmount</b>
+        </field>
+    </mapping>
+</mappings>

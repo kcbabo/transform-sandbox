@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:camel="http://camel.apache.org/schema/spring"
+   xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+   <!-- Camel route -->
+   <camelContext xmlns="http://camel.apache.org/schema/spring">
+  <endpoint uri="dozer:homeloan?sourceModel=application.ApplicationType&amp;targetModel=org.jboss.example.homeloan.data.LoanApplication&amp;unmarshalId=application&amp;mappingFile=transformation.xml" id="homeloan"/>
+  <dataFormats>
+    <jaxb contextPath="application" id="application"/>
+  </dataFormats>
+  <route>
+    <from uri="file:src/data?fileName=abc-order.xml&amp;noop=true"/>
+    <to ref="homeloan"/>
+    <log message="Application: \n${body}"/>
+  </route>
+</camelContext>
+</beans>
